@@ -1,6 +1,4 @@
 #2.1 all peaks pie plot
-
-
 library(org.Ss.eg.db)
 library(ChIPseeker) #ChIPseeker v1.26.2 
 library(GenomicRanges)
