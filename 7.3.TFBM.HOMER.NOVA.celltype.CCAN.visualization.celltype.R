@@ -8,7 +8,7 @@
 
 # celltype.ccan.peaks.list <- c("ASC", "B","CD2posGD","CD4posab","CD8abPOSab","cDCs","Monocytes","NK","pDCs") # it is a factor
 33+14+8+13+26+42+11+28+69=244
-all.path <- list.files(path='/work/abg/pyang19/scATAC_PBMC_analysis/TFBM_HOMER/input.output.files/output_files/celltype.ccan.peaks/B/TFBM.B.33.ccan.peak.300.bg.output',pattern='300.bg.output')
+all.path <- list.files(path='path.../celltype.ccan.peaks/B/TFBM.B.33.ccan.peak.300.bg.output',pattern='300.bg.output')
 
 num.CCAN.peaks <- length(all.path)#14
 
@@ -138,14 +138,14 @@ ggsave(p, filename = "Monocytes.celltypeCCAN.TFBM.14ccans.2hubgenes.5TFs.-log10.
 ############### make heatmap on local laptop ALL cell type ############################################################  
 
 
-path <- c("/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/ASC",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/B",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/CD2posGD",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/CD8abPOSab",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/cDCs",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/Monocytes",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/NK",
-          "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/pDCs")
+path <- c("path.../ASC",
+          "path.../B",
+          "path.../CD2posGD",
+          "path.../CD8abPOSab",
+          "path.../cDCs",
+          "path.../Monocytes",
+          "path.../NK",
+          "path.../pDCs")
 
 all.hub.genes <- ""
 all.TFs <- ""
@@ -277,5 +277,5 @@ p <- pheatmap(-log10(data),
               col=(brewer.pal(9,"Blues")))#if not rev (reverse), then higher number, the more significant
 
 # ggsave(p, filename = "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/all.cell.type.41.unique.sig.TF.45nonunique.hub.gene.correlation.celltypenocluster.0.1.pdf", width = 45, height = 45)
-ggsave(p, filename = "/Users/15612770360163.com/Desktop/scATAC/scATAC.submission2/scATAC.Satija.cellranger.1.2.batch1.batch2/newest.scATAC.PBMC.files.manuscript.final/plot.manuscript.final/TFBM.celltype.ccan.peaks.plot/all.cell.type.41.unique.sig.TF.45nonunique.hub.gene.correlation.celltypenocluster.0.1.blue.large.big.legend.pdf", width = 49, height = 49)
+ggsave(p, filename = "path.../TFBM.celltype.ccan.peaks.plot/all.cell.type.41.unique.sig.TF.45nonunique.hub.gene.correlation.celltypenocluster.0.1.blue.large.big.legend.pdf", width = 49, height = 49)
 
