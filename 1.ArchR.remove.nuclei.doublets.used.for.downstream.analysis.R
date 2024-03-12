@@ -1,4 +1,3 @@
-
 # on a computation node
 library(ArchR) # sessionInfo(), ArchR_1.0.1   
 library(BSgenome)
