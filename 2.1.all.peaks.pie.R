@@ -1,13 +1,12 @@
 #2.1 all peaks pie plot
 
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova")
 
 library(org.Ss.eg.db)
 library(ChIPseeker) #ChIPseeker v1.26.2 
 library(GenomicRanges)
 library(org.Sscrofa.eg.db) # created by  Penny using custome script  0.generate.OrgDb.geneannotation.R
 
-common.merged.peaks.6798.6800 <- readRDS("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/common.merged.peaks.6798.6800.filtered.rds") #110444
+common.merged.peaks.6798.6800 <- readRDS("path.../common.merged.peaks.6798.6800.filtered.rds") #110444
 
 library(biomaRt)
 library(GenomicFeatures)
