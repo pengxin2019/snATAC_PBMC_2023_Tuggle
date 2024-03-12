@@ -4,14 +4,11 @@ library(Seurat)
 library(GenomeInfoDb)
 library(ggplot2)
 library(patchwork)
-# library(AnnotationHub)
-# library(harmony)
-#library(chromVAR)
 library(dplyr)#top_n
 library(rtracklayer)
 set.seed(1234)
 
-integrated <- readRDS("integrated.four.with.cluster.2.4.2.30.rds")#resolution 2.4,2:30
+integrated <- readRDS("integrated.four.with.cluster.2.4.2.30.rds")#
 
 clusters <- unique(Idents(integrated))
 pairwise <- combn(clusters, 2)
