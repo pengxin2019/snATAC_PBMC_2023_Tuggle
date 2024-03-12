@@ -1,7 +1,5 @@
 
 ##pig scATAC 2.4 2:30
-# cd /work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory")
 
 library(Signac)
 library(Seurat)
@@ -20,21 +18,21 @@ DefaultAssay(integrated) <- 'peaks'
 #### ## ## ##  cell type specific co-accessibility regions
 
 all.cell.types.list <- c("ASC", "B","CD2negGD","CD2posGD","CD4posab","CD8abPOSab","CD8aPOSabT_NK","cDCs","Monocytes","NK","pDCs") # it is a factor
-celltype.DAP.onlyin.TSS.path <- c("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/ASC.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/B.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/CD2negGD.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/CD2posGD.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/CD4posab.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/CD8abPOSab.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/CD8aPOSabT_NK.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/cDCs.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/Monocytes.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/NK.DAP.DAP.only.in.TSS.txt",
-                                  "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova/pDCs.DAP.DAP.only.in.TSS.txt")
+celltype.DAP.onlyin.TSS.path <- c("ASC.DAP.DAP.only.in.TSS.txt",
+                                  "B.DAP.DAP.only.in.TSS.txt",
+                                  "CD2negGD.DAP.DAP.only.in.TSS.txt",
+                                  "CD2posGD.DAP.DAP.only.in.TSS.txt",
+                                  "CD4posab.DAP.DAP.only.in.TSS.txt",
+                                  "CD8abPOSab.DAP.DAP.only.in.TSS.txt",
+                                  "CD8aPOSabT_NK.DAP.DAP.only.in.TSS.txt",
+                                  "cDCs.DAP.DAP.only.in.TSS.txt",
+                                  "Monocytes.DAP.DAP.only.in.TSS.txt",
+                                  "NK.DAP.DAP.only.in.TSS.txt",
+                                  "pDCs.DAP.DAP.only.in.TSS.txt")
 
-all.DAP.files <- list.files(path='/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory',pattern='.DAP.findallmarkers.integration.scRNA.txt')
+all.DAP.files <- list.files(path='commonpeaks.110444.new.directory',pattern='.DAP.findallmarkers.integration.scRNA.txt')
 
-all.DE.files <- list.files(path='/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory',pattern='.scRNA.DE.gene.df.')
+all.DE.files <- list.files(path='commonpeaks.110444.new.directory',pattern='.scRNA.DE.gene.df.')
 
 tmpdir <- "CCAN.all.files.all.celltype.batch"
 if (!dir.exists(tmpdir))
