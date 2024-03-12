@@ -1,5 +1,4 @@
 # ##4. annotate cell types based on the cis-elements
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory")
 library(Signac)
 library(Seurat)
 library(GenomeInfoDb)
@@ -20,14 +19,6 @@ integrated <- readRDS("integrated.four.with.cluster.2.4.2.30.rds")#resolution 2.
 # Active assay: peaks (110444 features, 110272 variable features)
 # 3 dimensional reductions calculated: integrated_lsi, umap, lsi
 DefaultAssay(integrated)#peaks
-
-# table(Idents(integrated))
-# 0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15 
-# 1065 1009  974  927  839  838  793  785  729  718  682  640  584  574  563  461 
-# 16   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31 
-# 450  428  419  404  392  376  334  315  263  239  215  215  197  159  146  142 
-# 32   33   34 
-# 141  105   86 
 
 
 #### findallmarker only pos, no distance restriction ###
@@ -62,12 +53,6 @@ DE.pig.resol2.4.2.30.findallmarker.onlypos.p0.05.2 <- readRDS("DE.pig.resol2.4.2
 # 17-48039835-48040939   17-48039835-48040939         ACOT8        0
 # 7-9835264-9836154         7-9835264-9836154         GFOD1        0
 # 15-56312183-56312852   15-56312183-56312852        MFHAS1    17091
-
-# some of the gene markers used in scRNA paper have alternative names, check whether we have DAP near their alternative gene names
-subset(DE.pig.resol2.4.2.30.findallmarker.onlypos.p0.05.2,closest_genes == "DAP10")#0
-subset(DE.pig.resol2.4.2.30.findallmarker.onlypos.p0.05.2,closest_genes == "NKG2D")#0
-subset(DE.pig.resol2.4.2.30.findallmarker.onlypos.p0.05.2,closest_genes == "CD161")#0
-subset(DE.pig.resol2.4.2.30.findallmarker.onlypos.p0.05.2,closest_genes == "DAP12")#0
 
 ### subset the cluster DAPs near cell type markers used in scRNA paper
 ##some of the gene markers used in scRNA paper have alternative names, 
