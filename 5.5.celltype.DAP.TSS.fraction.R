@@ -1,27 +1,26 @@
 # check whether cell type DAP includes TSS of gene or not
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/ArchR_wd_Nova")
 library(org.Ss.eg.db)
 library(ChIPseeker) #ChIPseeker v1.26.2 
 library(GenomicRanges)
 library(org.Sscrofa.eg.db) # created by  Penny using custome script  0.generate.OrgDb.geneannotation.R
 
-gtf <- rtracklayer::import('/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/Sus_scrofa.Sscrofa11.1.102.gtf')
+gtf <- rtracklayer::import('path.../Sus_scrofa.Sscrofa11.1.102.gtf')
 library(GenomicFeatures)
 TxDb <- makeTxDbFromGRanges(gtf)
 library(biomaRt)
 
 ## check how many DAP includes TSS
-B.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/B.DAP.findallmarkers.integration.scRNA.txt"
-ASC.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/ASC.DAP.findallmarkers.integration.scRNA.txt"
-CD2negGD.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/CD2negGD.DAP.findallmarkers.integration.scRNA.txt"
-CD2posGD.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/CD2posGD.DAP.findallmarkers.integration.scRNA.txt"
-CD4posab.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/CD4posab.DAP.findallmarkers.integration.scRNA.txt"
-CD8abPOSab.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/CD8abPOSab.DAP.findallmarkers.integration.scRNA.txt"
-CD8aPOSabT_NK.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/CD8aPOSabT_NK.DAP.findallmarkers.integration.scRNA.txt"
-cDCs.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/cDCs.DAP.findallmarkers.integration.scRNA.txt"
-Monocytes.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/Monocytes.DAP.findallmarkers.integration.scRNA.txt"
-NK.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/NK.DAP.findallmarkers.integration.scRNA.txt"
-pDCs.DAP <- "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/pDCs.DAP.findallmarkers.integration.scRNA.txt"
+B.DAP <- "B.DAP.findallmarkers.integration.scRNA.txt"
+ASC.DAP <- "ASC.DAP.findallmarkers.integration.scRNA.txt"
+CD2negGD.DAP <- "CD2negGD.DAP.findallmarkers.integration.scRNA.txt"
+CD2posGD.DAP <- "CD2posGD.DAP.findallmarkers.integration.scRNA.txt"
+CD4posab.DAP <- "CD4posab.DAP.findallmarkers.integration.scRNA.txt"
+CD8abPOSab.DAP <- "CD8abPOSab.DAP.findallmarkers.integration.scRNA.txt"
+CD8aPOSabT_NK.DAP <- "CD8aPOSabT_NK.DAP.findallmarkers.integration.scRNA.txt"
+cDCs.DAP <- "cDCs.DAP.findallmarkers.integration.scRNA.txt"
+Monocytes.DAP <- "Monocytes.DAP.findallmarkers.integration.scRNA.txt"
+NK.DAP <- "NK.DAP.findallmarkers.integration.scRNA.txt"
+pDCs.DAP <- "pDCs.DAP.findallmarkers.integration.scRNA.txt"
 
 celltype.DAPs <- c(B.DAP, ASC.DAP, CD2negGD.DAP, CD2posGD.DAP,CD4posab.DAP, CD8abPOSab.DAP, CD8aPOSabT_NK.DAP, cDCs.DAP, Monocytes.DAP, NK.DAP, pDCs.DAP)
 names(celltype.DAPs) <- c("B.DAP", "ASC.DAP", "CD2negGD.DAP", "CD2posGD.DAP","CD4posab.DAP", "CD8abPOSab.DAP", "CD8aPOSabT_NK.DAP", "cDCs.DAP","Monocytes.DAP", "NK.DAP", "pDCs.DAP")
