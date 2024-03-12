@@ -1,5 +1,3 @@
-
-
 # how many peaks are in common between different datasets
 #https://satijalab.org/signac/articles/merging.html
 library(Signac)
