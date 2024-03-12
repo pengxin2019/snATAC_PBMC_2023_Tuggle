@@ -1,7 +1,6 @@
 
 #5. identify differentially acessible peaks
 
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory")
 library(Signac)
 library(Seurat)
 library(GenomeInfoDb)
@@ -102,7 +101,6 @@ closest_genes_result <- readRDS("DAP.pig.2.4.2.30.findallmarkers.pos.integration
 saveRDS(DAP.sub.all.cell.type, file = "DAP.pig.2.4.2.30.findallmarkers.pos.integration.with.scRNA.DAP.sub.RNA2RNA.avg_log2FC.0.25.no.restriction.distance.rds")#11
 DAP.sub.all.cell.type <- readRDS("DAP.pig.2.4.2.30.findallmarkers.pos.integration.with.scRNA.DAP.sub.RNA2RNA.avg_log2FC.0.25.no.restriction.distance.rds")#11
 
-list.files(path='/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/GO.input.each.B.cluster.and.Cell.type',pattern='.closest_genes.human.genes.findallmarkers.integration.scRNA.txt')
 file <- "data.R"
 
 if (file.exists(file)) {
@@ -110,7 +108,7 @@ if (file.exists(file)) {
   cat("The file is deleted")
 }
 
-celltype.DAP <- list.files(path='/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory/',pattern='.celltype.DAP.only.pos.integration.RNA.txt')
+celltype.DAP <- list.files(path='path.../commonpeaks.110444.new.directory/',pattern='.celltype.DAP.only.pos.integration.RNA.txt')
 
 folder <- "closest.pig.genes.cell.type"
 
