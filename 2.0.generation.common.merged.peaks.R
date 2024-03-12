@@ -1,5 +1,4 @@
 
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd")
 
 # how many peaks are in common between different datasets
 #https://satijalab.org/signac/articles/merging.html
@@ -10,14 +9,14 @@ library(future)
 
 #generate a set of peaks among 4 datasets across 1x and 2x
 peaks.6798.1x <- read.table(
-  file = "/work/abg/pyang19/opt/cellranger.count.input.and.result/PBMC6798_with_motif_count_result_new/outs/peaks.bed",
+  file = "path.../peaks.bed",
   col.names = c("chr", "start", "end")
 )
 
 gr.6798.1x <- makeGRangesFromDataFrame(peaks.6798.1x)
 
 peaks.6798.2x <- read.table(
-  file = "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.6798.2x.cellranger.count.result.outs/outs/peaks.bed",
+  file = "path.../peaks.bed",
   col.names = c("chr", "start", "end")
 )
 
@@ -28,7 +27,7 @@ gr.6798.merged <- reduce(x = c(gr.6798.1x, gr.6798.2x))
 # GRanges object with 114843 ranges and 0 metadata columns:
   
 peaks.6800.1x <- read.table(
-  file = "/work/abg/pyang19/opt/cellranger.count.input.and.result/PBMC6800_with_motif_count_result_new/outs/peaks.bed",
+  file = "path.../peaks.bed",
   col.names = c("chr", "start", "end")
 )
 # dim(peaks.6800.1x)
@@ -40,7 +39,7 @@ gr.6800.1x <- makeGRangesFromDataFrame(peaks.6800.1x)
 # [1] 102154
 
 peaks.6800.2x <- read.table(
-  file = "/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.6800.2x.cellranger.count.result.outs/outs/peaks.bed",
+  file = "path.../peaks.bed",
   col.names = c("chr", "start", "end")
 )
 # > dim(peaks.6800.2x)
@@ -60,21 +59,16 @@ common.merged.peaks.6798.6800 <- reduce(x = c(gr.merged.peaks.6798.overlap, gr.6
 #GRanges object with 111636 ranges and 0 metadata columns:
 
 saveRDS(common.merged.peaks.6798.6800, file = "common.merged.peaks.6798.6800.rds")
-common.merged.peaks.6798.6800 <- readRDS("common.merged.peaks.6798.6800.rds") 
 
 peakwidths.common.merged.peaks.6798.6800 <- width(common.merged.peaks.6798.6800)
 hist(peakwidths.common.merged.peaks.6798.6800)
 
 common.merged.peaks.6798.6800 <- common.merged.peaks.6798.6800[peakwidths.common.merged.peaks.6798.6800  < 10000 & peakwidths.common.merged.peaks.6798.6800 > 20]
 common.merged.peaks.6798.6800
-#GRanges object with 110444 ranges and 0 metadata columns:
 
 saveRDS(common.merged.peaks.6798.6800, file = "common.merged.peaks.6798.6800.filtered.rds")#110444
-common.merged.peaks.6798.6800 <- readRDS("common.merged.peaks.6798.6800.filtered.rds") #110444
 
 peakwidths.common.merged.peaks.6798.6800.new <- width(common.merged.peaks.6798.6800)
-#mean(peakwidths.common.merged.peaks.6798.6800.new)
-#[1] 1086.022
 
 
 common.merged.peaks.6798.6800 <- readRDS("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/common.merged.peaks.6798.6800.filtered.rds")
