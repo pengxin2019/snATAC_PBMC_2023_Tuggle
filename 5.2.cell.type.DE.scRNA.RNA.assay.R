@@ -1,5 +1,4 @@
 
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory")
 library(Signac)
 library(Seurat)
 library(GenomeInfoDb)
@@ -12,7 +11,7 @@ library(dplyr)#top_n
 set.seed(1234)
  
 
-pbmc_sc_rna <- readRDS("/work/abg/pyang19/opt/scRNA/scRNA.rds")
+pbmc_sc_rna <- readRDS("path.../scRNA/scRNA.rds")
 
 Idents(pbmc_sc_rna) <- pbmc_sc_rna$celltypes
 
