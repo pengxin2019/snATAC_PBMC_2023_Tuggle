@@ -1,5 +1,4 @@
 #7.3. heatmap TFBM result
-
 list.files()
 # TFs, p values, Log P values
 celltype.top.TFs <- read.table("TFBM.celltype.result.top.20.TFs.each.cell.type.summary.txt", header = FALSE)
