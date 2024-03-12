@@ -3,7 +3,6 @@
 
 # 1. download it from Box folder uploaded by Ryan and upload it to Nova account
 
-setwd("/work/abg/pyang19/opt/pig.6798.6800.PBMC.Satija.pipeline.result/pbmc.1x.2x.cellrangeratac1.2.0.wd/strict.filter.new.annotation/strict.filter.new.annotation.common.peaks/commonpeaks.110444.new.directory")
 library(Signac)
 library(Seurat)
 library(SeuratWrappers)
